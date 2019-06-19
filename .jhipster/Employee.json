@@ -1,0 +1,45 @@
+{
+    "name": "Employee",
+    "fields": [
+        {
+            "fieldName": "clientId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "advisorId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "appointmentId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "roomId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "token",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "endDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "startDate",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190619212931",
+    "javadoc": "The Employee entity.",
+    "entityTableName": "employee",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "micro",
+    "applications": "*",
+    "microserviceName": "micro"
+}
