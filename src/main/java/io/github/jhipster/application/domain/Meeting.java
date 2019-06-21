@@ -9,35 +9,40 @@ import java.time.Instant;
  * The Employee entity.
  */
 @Entity
-@Table(name = "employee")
+@Table(name = "VISIOMEETING", schema = "DICTAO" ,catalog = "")
 public class Employee implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+
+   /* @Column(name = "VMID", nullable = false)
+    @SequenceGenerator(name="HIBERNATE_SEQUENCE", sequenceName = "HIBERNATE_SEQUENCE", allocationSize = 1)
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
-    @SequenceGenerator(name = "sequenceGenerator")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "HIBERNATE_SEQUENCE")*/
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
+   @Column(name = "VMID", nullable = false)
     private Long id;
 
-    @Column(name = "client_id")
+    @Column(name = "ID_CLIENT", nullable = true)
     private String clientId;
 
-    @Column(name = "advisor_id")
+    @Column(name = "BRID_NUMBER", nullable = true)
     private String advisorId;
 
-    @Column(name = "appointment_id")
+    @Column(name = "VISIOMEETINGID", nullable = false, length = 100)
     private String appointmentId;
 
-    @Column(name = "room_id")
+    @Column(name = "ROOMID", nullable = false, length = 100)
     private String roomId;
 
-    @Column(name = "token")
+    @Column(name = "ROOM_TOKEN", nullable = true, length = 250)
     private String token;
 
-    @Column(name = "end_date")
+    @Column(name = "UPDATEDATE", nullable = true)
     private Instant endDate;
 
-    @Column(name = "start_date")
+    @Column(name = "MEETINGDATE", nullable = true)
     private Instant startDate;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

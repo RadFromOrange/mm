@@ -1,12 +1,13 @@
 package io.github.jhipster.application.service;
 
+import io.github.jhipster.application.domain.Meeting;
 import io.github.jhipster.application.service.dto.EmployeeDTO;
 
 import java.util.List;
 import java.util.Optional;
 
 /**
- * Service Interface for managing {@link io.github.jhipster.application.domain.Employee}.
+ * Service Interface for managing {@link Meeting}.
  */
 public interface EmployeeService {
 

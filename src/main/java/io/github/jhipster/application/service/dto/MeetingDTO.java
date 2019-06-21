@@ -1,11 +1,12 @@
 package io.github.jhipster.application.service.dto;
+import io.github.jhipster.application.domain.Meeting;
 import io.swagger.annotations.ApiModel;
 import java.time.Instant;
 import java.io.Serializable;
 import java.util.Objects;
 
 /**
- * A DTO for the {@link io.github.jhipster.application.domain.Employee} entity.
+ * A DTO for the {@link Meeting} entity.
  */
 @ApiModel(description = "The Employee entity.")
 public class EmployeeDTO implements Serializable {

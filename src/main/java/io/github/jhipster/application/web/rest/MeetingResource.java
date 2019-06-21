@@ -1,5 +1,6 @@
 package io.github.jhipster.application.web.rest;
 
+import io.github.jhipster.application.domain.Meeting;
 import io.github.jhipster.application.service.EmployeeService;
 import io.github.jhipster.application.web.rest.errors.BadRequestAlertException;
 import io.github.jhipster.application.service.dto.EmployeeDTO;
@@ -19,7 +20,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * REST controller for managing {@link io.github.jhipster.application.domain.Employee}.
+ * REST controller for managing {@link Meeting}.
  */
 @RestController
 @RequestMapping("/api")

@@ -1,7 +1,7 @@
 package io.github.jhipster.application.service.impl;
 
 import io.github.jhipster.application.service.EmployeeService;
-import io.github.jhipster.application.domain.Employee;
+import io.github.jhipster.application.domain.Meeting;
 import io.github.jhipster.application.repository.EmployeeRepository;
 import io.github.jhipster.application.service.dto.EmployeeDTO;
 import io.github.jhipster.application.service.mapper.EmployeeMapper;
@@ -17,7 +17,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
- * Service Implementation for managing {@link Employee}.
+ * Service Implementation for managing {@link Meeting}.
  */
 @Service
 @Transactional
@@ -43,7 +43,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public EmployeeDTO save(EmployeeDTO employeeDTO) {
         log.debug("Request to save Employee : {}", employeeDTO);
-        Employee employee = employeeMapper.toEntity(employeeDTO);
+        Meeting employee = employeeMapper.toEntity(employeeDTO);
         employee = employeeRepository.save(employee);
         return employeeMapper.toDto(employee);
     }
