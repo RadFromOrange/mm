@@ -6,11 +6,11 @@ import java.io.Serializable;
 import java.time.Instant;
 
 /**
- * The Employee entity.
+ * The Meeting entity.
  */
 @Entity
-@Table(name = "VISIOMEETING", schema = "DICTAO" ,catalog = "")
-public class Employee implements Serializable {
+@Table(name = "VISIOMEETING" )
+public class Meeting implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -58,7 +58,7 @@ public class Employee implements Serializable {
         return clientId;
     }
 
-    public Employee clientId(String clientId) {
+    public Meeting clientId(String clientId) {
         this.clientId = clientId;
         return this;
     }
@@ -71,7 +71,7 @@ public class Employee implements Serializable {
         return advisorId;
     }
 
-    public Employee advisorId(String advisorId) {
+    public Meeting advisorId(String advisorId) {
         this.advisorId = advisorId;
         return this;
     }
@@ -84,7 +84,7 @@ public class Employee implements Serializable {
         return appointmentId;
     }
 
-    public Employee appointmentId(String appointmentId) {
+    public Meeting appointmentId(String appointmentId) {
         this.appointmentId = appointmentId;
         return this;
     }
@@ -97,7 +97,7 @@ public class Employee implements Serializable {
         return roomId;
     }
 
-    public Employee roomId(String roomId) {
+    public Meeting roomId(String roomId) {
         this.roomId = roomId;
         return this;
     }
@@ -110,7 +110,7 @@ public class Employee implements Serializable {
         return token;
     }
 
-    public Employee token(String token) {
+    public Meeting token(String token) {
         this.token = token;
         return this;
     }
@@ -123,7 +123,7 @@ public class Employee implements Serializable {
         return endDate;
     }
 
-    public Employee endDate(Instant endDate) {
+    public Meeting endDate(Instant endDate) {
         this.endDate = endDate;
         return this;
     }
@@ -136,7 +136,7 @@ public class Employee implements Serializable {
         return startDate;
     }
 
-    public Employee startDate(Instant startDate) {
+    public Meeting startDate(Instant startDate) {
         this.startDate = startDate;
         return this;
     }
@@ -151,10 +151,10 @@ public class Employee implements Serializable {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof Employee)) {
+        if (!(o instanceof Meeting)) {
             return false;
         }
-        return id != null && id.equals(((Employee) o).id);
+        return id != null && id.equals(((Meeting) o).id);
     }
 
     @Override
@@ -164,7 +164,7 @@ public class Employee implements Serializable {
 
     @Override
     public String toString() {
-        return "Employee{" +
+        return "Meeting{" +
             "id=" + getId() +
             ", clientId='" + getClientId() + "'" +
             ", advisorId='" + getAdvisorId() + "'" +

@@ -1,7 +1,7 @@
 package io.github.jhipster.application.service;
 
 import io.github.jhipster.application.domain.Meeting;
-import io.github.jhipster.application.service.dto.EmployeeDTO;
+import io.github.jhipster.application.service.dto.MeetingDTO;
 
 import java.util.List;
 import java.util.Optional;
@@ -9,34 +9,34 @@ import java.util.Optional;
 /**
  * Service Interface for managing {@link Meeting}.
  */
-public interface EmployeeService {
+public interface MeetingService {
 
     /**
-     * Save a employee.
+     * Save a Meeting.
      *
-     * @param employeeDTO the entity to save.
+     * @param MeetingDTO the entity to save.
      * @return the persisted entity.
      */
-    EmployeeDTO save(EmployeeDTO employeeDTO);
+    MeetingDTO save(MeetingDTO MeetingDTO);
 
     /**
-     * Get all the employees.
+     * Get all the Meetings.
      *
      * @return the list of entities.
      */
-    List<EmployeeDTO> findAll();
+    List<MeetingDTO> findAll();
 
 
     /**
-     * Get the "id" employee.
+     * Get the "id" Meeting.
      *
      * @param id the id of the entity.
      * @return the entity.
      */
-    Optional<EmployeeDTO> findOne(Long id);
+    Optional<MeetingDTO> findOne(Long id);
 
     /**
-     * Delete the "id" employee.
+     * Delete the "id" Meeting.
      *
      * @param id the id of the entity.
      */

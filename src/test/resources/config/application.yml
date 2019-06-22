@@ -18,7 +18,7 @@ spring:
     name: micro
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:h2:mem:micro;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MULTI_THREADED=FALSE
+    url: jdbc:h2:mem:micro;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MULTI_THREADED=FALSE;MODE=MSSQLServer
     name:
     username:
     password:
@@ -28,9 +28,9 @@ spring:
     database-platform: io.github.jhipster.domain.util.FixedH2Dialect
     database: H2
     open-in-view: false
-    show-sql: false
+    show-sql: true
     hibernate:
-      ddl-auto: none
+      ddl-auto: create
       naming:
         physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
         implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
@@ -39,11 +39,9 @@ spring:
       hibernate.connection.provider_disables_autocommit: true
       hibernate.cache.use_second_level_cache: false
       hibernate.cache.use_query_cache: false
-      hibernate.generate_statistics: false
-      hibernate.hbm2ddl.auto: validate
+      hibernate.generate_statistics: true
+      hibernate.hbm2ddl.auto: create
       hibernate.jdbc.time_zone: UTC
-  liquibase:
-    contexts: test
   mail:
     host: localhost
   main:
@@ -79,16 +77,11 @@ server:
 
 jhipster:
   clientApp:
-    name: 'microApp'
+    name: 'visioApp'
   logging:
     # To test json console appender
     use-json-format: true # By default, logs are in Json format
-    # To test logstash appender
-    logstash:
-      enabled: true
-      host: localhost
-      port: 5000
-      queue-size: 512
+
   security:
     authentication:
       jwt:

@@ -2,16 +2,13 @@ package io.github.jhipster.application;
 
 import io.github.jhipster.application.config.ApplicationProperties;
 import io.github.jhipster.application.config.DefaultProfileUtil;
-
 import io.github.jhipster.config.JHipsterConstants;
-
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.liquibase.LiquibaseProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.core.env.Environment;
 
@@ -21,14 +18,14 @@ import java.util.Arrays;
 import java.util.Collection;
 
 @SpringBootApplication
-@EnableConfigurationProperties({LiquibaseProperties.class, ApplicationProperties.class})
-public class MicroApp implements InitializingBean {
+@EnableConfigurationProperties({ApplicationProperties.class})
+public class VisioApp implements InitializingBean {
 
-    private static final Logger log = LoggerFactory.getLogger(MicroApp.class);
+    private static final Logger log = LoggerFactory.getLogger(VisioApp.class);
 
     private final Environment env;
 
-    public MicroApp(Environment env) {
+    public VisioApp(Environment env) {
         this.env = env;
     }
 
@@ -58,7 +55,7 @@ public class MicroApp implements InitializingBean {
      * @param args the command line arguments.
      */
     public static void main(String[] args) {
-        SpringApplication app = new SpringApplication(MicroApp.class);
+        SpringApplication app = new SpringApplication(VisioApp.class);
         DefaultProfileUtil.addDefaultProfile(app);
         Environment env = app.run(args).getEnvironment();
         logApplicationStartup(env);

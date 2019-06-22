@@ -1,6 +1,7 @@
 package io.github.jhipster.application.web.rest.errors;
 
-import io.github.jhipster.application.MicroApp;
+
+import io.github.jhipster.application.VisioApp;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 /**
  * Integration tests {@link ExceptionTranslator} controller advice.
  */
-@SpringBootTest(classes = MicroApp.class)
+@SpringBootTest(classes = VisioApp.class)
 public class ExceptionTranslatorIT {
 
     @Autowired

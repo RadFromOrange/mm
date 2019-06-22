@@ -8,8 +8,8 @@ import java.util.Objects;
 /**
  * A DTO for the {@link Meeting} entity.
  */
-@ApiModel(description = "The Employee entity.")
-public class EmployeeDTO implements Serializable {
+@ApiModel(description = "The Meeting entity.")
+public class MeetingDTO implements Serializable {
 
     private Long id;
 
@@ -101,11 +101,11 @@ public class EmployeeDTO implements Serializable {
             return false;
         }
 
-        EmployeeDTO employeeDTO = (EmployeeDTO) o;
-        if (employeeDTO.getId() == null || getId() == null) {
+        MeetingDTO MeetingDTO = (MeetingDTO) o;
+        if (MeetingDTO.getId() == null || getId() == null) {
             return false;
         }
-        return Objects.equals(getId(), employeeDTO.getId());
+        return Objects.equals(getId(), MeetingDTO.getId());
     }
 
     @Override
@@ -115,7 +115,7 @@ public class EmployeeDTO implements Serializable {
 
     @Override
     public String toString() {
-        return "EmployeeDTO{" +
+        return "MeetingDTO{" +
             "id=" + getId() +
             ", clientId='" + getClientId() + "'" +
             ", advisorId='" + getAdvisorId() + "'" +

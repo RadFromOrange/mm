@@ -6,10 +6,10 @@ import org.springframework.stereotype.Repository;
 
 
 /**
- * Spring Data  repository for the Employee entity.
+ * Spring Data  repository for the Meeting entity.
  */
 @SuppressWarnings("unused")
 @Repository
-public interface EmployeeRepository extends JpaRepository<Meeting, Long> {
+public interface MeetingRepository extends JpaRepository<Meeting, Long> {
 
 }

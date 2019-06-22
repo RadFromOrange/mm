@@ -1,14 +1,15 @@
 package io.github.jhipster.application.cucumber;
 
-import io.github.jhipster.application.MicroApp;
+
 import cucumber.api.java.Before;
+import io.github.jhipster.application.VisioApp;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 @SpringBootTest
 @WebAppConfiguration
-@ContextConfiguration(classes = MicroApp.class)
+@ContextConfiguration(classes = VisioApp.class)
 public class CucumberContextConfiguration {
 
     @Before

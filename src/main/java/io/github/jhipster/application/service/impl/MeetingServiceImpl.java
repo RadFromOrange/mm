@@ -1,10 +1,11 @@
 package io.github.jhipster.application.service.impl;
 
-import io.github.jhipster.application.service.EmployeeService;
+import io.github.jhipster.application.service.MeetingService;
 import io.github.jhipster.application.domain.Meeting;
-import io.github.jhipster.application.repository.EmployeeRepository;
-import io.github.jhipster.application.service.dto.EmployeeDTO;
-import io.github.jhipster.application.service.mapper.EmployeeMapper;
+import io.github.jhipster.application.repository.MeetingRepository;
+import io.github.jhipster.application.service.MeetingService;
+import io.github.jhipster.application.service.dto.MeetingDTO;
+import io.github.jhipster.application.service.mapper.MeetingMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,70 +22,70 @@ import java.util.stream.Collectors;
  */
 @Service
 @Transactional
-public class EmployeeServiceImpl implements EmployeeService {
+public class MeetingServiceImpl implements MeetingService {
 
-    private final Logger log = LoggerFactory.getLogger(EmployeeServiceImpl.class);
+    private final Logger log = LoggerFactory.getLogger(MeetingServiceImpl.class);
 
-    private final EmployeeRepository employeeRepository;
+    private final MeetingRepository MeetingRepository;
 
-    private final EmployeeMapper employeeMapper;
+    private final MeetingMapper MeetingMapper;
 
-    public EmployeeServiceImpl(EmployeeRepository employeeRepository, EmployeeMapper employeeMapper) {
-        this.employeeRepository = employeeRepository;
-        this.employeeMapper = employeeMapper;
+    public MeetingServiceImpl(MeetingRepository MeetingRepository, MeetingMapper MeetingMapper) {
+        this.MeetingRepository = MeetingRepository;
+        this.MeetingMapper = MeetingMapper;
     }
 
     /**
-     * Save a employee.
+     * Save a Meeting.
      *
-     * @param employeeDTO the entity to save.
+     * @param MeetingDTO the entity to save.
      * @return the persisted entity.
      */
     @Override
-    public EmployeeDTO save(EmployeeDTO employeeDTO) {
-        log.debug("Request to save Employee : {}", employeeDTO);
-        Meeting employee = employeeMapper.toEntity(employeeDTO);
-        employee = employeeRepository.save(employee);
-        return employeeMapper.toDto(employee);
+    public MeetingDTO save(MeetingDTO MeetingDTO) {
+        log.debug("Request to save Meeting : {}", MeetingDTO);
+        Meeting Meeting = MeetingMapper.toEntity(MeetingDTO);
+        Meeting = MeetingRepository.save(Meeting);
+        return MeetingMapper.toDto(Meeting);
     }
 
     /**
-     * Get all the employees.
+     * Get all the Meetings.
      *
      * @return the list of entities.
      */
     @Override
     @Transactional(readOnly = true)
-    public List<EmployeeDTO> findAll() {
-        log.debug("Request to get all Employees");
-        return employeeRepository.findAll().stream()
-            .map(employeeMapper::toDto)
+    public List<MeetingDTO> findAll() {
+        log.debug("Request to get all Meetings");
+        return MeetingRepository.findAll().stream()
+            .map(MeetingMapper::toDto)
             .collect(Collectors.toCollection(LinkedList::new));
     }
 
 
     /**
-     * Get one employee by id.
+     * Get one Meeting by id.
      *
      * @param id the id of the entity.
      * @return the entity.
      */
     @Override
     @Transactional(readOnly = true)
-    public Optional<EmployeeDTO> findOne(Long id) {
-        log.debug("Request to get Employee : {}", id);
-        return employeeRepository.findById(id)
-            .map(employeeMapper::toDto);
+    public Optional<MeetingDTO> findOne(Long id) {
+        log.debug("Request to get Meeting : {}", id);
+        return MeetingRepository.findById(id)
+            .map(MeetingMapper::toDto);
     }
 
     /**
-     * Delete the employee by id.
+     * Delete the Meeting by id.
      *
      * @param id the id of the entity.
      */
     @Override
     public void delete(Long id) {
-        log.debug("Request to delete Employee : {}", id);
-        employeeRepository.deleteById(id);
+        log.debug("Request to delete Meeting : {}", id);
+        MeetingRepository.deleteById(id);
     }
 }

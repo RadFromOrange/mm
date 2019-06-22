@@ -140,7 +140,7 @@ info:
 
 jhipster:
   clientApp:
-    name: 'microApp'
+    name: 'visioApp'
   # By default CORS is disabled. Uncomment to enable.
   # cors:
   #     allowed-origins: "*"

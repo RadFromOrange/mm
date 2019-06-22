@@ -1,15 +1,16 @@
 package io.github.jhipster.application.service.mapper;
 
 import io.github.jhipster.application.domain.*;
-import io.github.jhipster.application.service.dto.EmployeeDTO;
 
+
+import io.github.jhipster.application.service.dto.MeetingDTO;
 import org.mapstruct.*;
 
 /**
- * Mapper for the entity {@link Meeting} and its DTO {@link EmployeeDTO}.
+ * Mapper for the entity {@link Meeting} and its DTO {@link MeetingDTO}.
  */
 @Mapper(componentModel = "spring", uses = {})
-public interface EmployeeMapper extends EntityMapper<EmployeeDTO, Meeting> {
+public interface MeetingMapper extends EntityMapper<MeetingDTO, Meeting> {
 
 
 

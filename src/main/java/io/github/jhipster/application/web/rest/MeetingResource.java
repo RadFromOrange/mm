@@ -1,9 +1,9 @@
 package io.github.jhipster.application.web.rest;
 
 import io.github.jhipster.application.domain.Meeting;
-import io.github.jhipster.application.service.EmployeeService;
+import io.github.jhipster.application.service.MeetingService;
 import io.github.jhipster.application.web.rest.errors.BadRequestAlertException;
-import io.github.jhipster.application.service.dto.EmployeeDTO;
+import io.github.jhipster.application.service.dto.MeetingDTO;
 
 import io.github.jhipster.web.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -24,95 +24,95 @@ import java.util.Optional;
  */
 @RestController
 @RequestMapping("/api")
-public class EmployeeResource {
+public class MeetingResource {
 
-    private final Logger log = LoggerFactory.getLogger(EmployeeResource.class);
+    private final Logger log = LoggerFactory.getLogger(MeetingResource.class);
 
-    private static final String ENTITY_NAME = "microEmployee";
+    private static final String ENTITY_NAME = "microMeeting";
 
     @Value("${jhipster.clientApp.name}")
     private String applicationName;
 
-    private final EmployeeService employeeService;
+    private final MeetingService MeetingService;
 
-    public EmployeeResource(EmployeeService employeeService) {
-        this.employeeService = employeeService;
+    public MeetingResource(MeetingService MeetingService) {
+        this.MeetingService = MeetingService;
     }
 
     /**
-     * {@code POST  /employees} : Create a new employee.
+     * {@code POST  /Meetings} : Create a new Meeting.
      *
-     * @param employeeDTO the employeeDTO to create.
-     * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new employeeDTO, or with status {@code 400 (Bad Request)} if the employee has already an ID.
+     * @param MeetingDTO the MeetingDTO to create.
+     * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new MeetingDTO, or with status {@code 400 (Bad Request)} if the Meeting has already an ID.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
-    @PostMapping("/employees")
-    public ResponseEntity<EmployeeDTO> createEmployee(@RequestBody EmployeeDTO employeeDTO) throws URISyntaxException {
-        log.debug("REST request to save Employee : {}", employeeDTO);
-        if (employeeDTO.getId() != null) {
-            throw new BadRequestAlertException("A new employee cannot already have an ID", ENTITY_NAME, "idexists");
+    @PostMapping("/Meetings")
+    public ResponseEntity<MeetingDTO> createMeeting(@RequestBody MeetingDTO MeetingDTO) throws URISyntaxException {
+        log.debug("REST request to save Meeting : {}", MeetingDTO);
+        if (MeetingDTO.getId() != null) {
+            throw new BadRequestAlertException("A new Meeting cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        EmployeeDTO result = employeeService.save(employeeDTO);
-        return ResponseEntity.created(new URI("/api/employees/" + result.getId()))
+        MeetingDTO result = MeetingService.save(MeetingDTO);
+        return ResponseEntity.created(new URI("/api/Meetings/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, false, ENTITY_NAME, result.getId().toString()))
             .body(result);
     }
 
     /**
-     * {@code PUT  /employees} : Updates an existing employee.
+     * {@code PUT  /Meetings} : Updates an existing Meeting.
      *
-     * @param employeeDTO the employeeDTO to update.
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated employeeDTO,
-     * or with status {@code 400 (Bad Request)} if the employeeDTO is not valid,
-     * or with status {@code 500 (Internal Server Error)} if the employeeDTO couldn't be updated.
+     * @param MeetingDTO the MeetingDTO to update.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated MeetingDTO,
+     * or with status {@code 400 (Bad Request)} if the MeetingDTO is not valid,
+     * or with status {@code 500 (Internal Server Error)} if the MeetingDTO couldn't be updated.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
-    @PutMapping("/employees")
-    public ResponseEntity<EmployeeDTO> updateEmployee(@RequestBody EmployeeDTO employeeDTO) throws URISyntaxException {
-        log.debug("REST request to update Employee : {}", employeeDTO);
-        if (employeeDTO.getId() == null) {
+    @PutMapping("/Meetings")
+    public ResponseEntity<MeetingDTO> updateMeeting(@RequestBody MeetingDTO MeetingDTO) throws URISyntaxException {
+        log.debug("REST request to update Meeting : {}", MeetingDTO);
+        if (MeetingDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
-        EmployeeDTO result = employeeService.save(employeeDTO);
+        MeetingDTO result = MeetingService.save(MeetingDTO);
         return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, employeeDTO.getId().toString()))
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, MeetingDTO.getId().toString()))
             .body(result);
     }
 
     /**
-     * {@code GET  /employees} : get all the employees.
+     * {@code GET  /Meetings} : get all the Meetings.
      *
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of employees in body.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of Meetings in body.
      */
-    @GetMapping("/employees")
-    public List<EmployeeDTO> getAllEmployees() {
-        log.debug("REST request to get all Employees");
-        return employeeService.findAll();
+    @GetMapping("/Meetings")
+    public List<MeetingDTO> getAllMeetings() {
+        log.debug("REST request to get all Meetings");
+        return MeetingService.findAll();
     }
 
     /**
-     * {@code GET  /employees/:id} : get the "id" employee.
+     * {@code GET  /Meetings/:id} : get the "id" Meeting.
      *
-     * @param id the id of the employeeDTO to retrieve.
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the employeeDTO, or with status {@code 404 (Not Found)}.
+     * @param id the id of the MeetingDTO to retrieve.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the MeetingDTO, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/employees/{id}")
-    public ResponseEntity<EmployeeDTO> getEmployee(@PathVariable Long id) {
-        log.debug("REST request to get Employee : {}", id);
-        Optional<EmployeeDTO> employeeDTO = employeeService.findOne(id);
-        return ResponseUtil.wrapOrNotFound(employeeDTO);
+    @GetMapping("/Meetings/{id}")
+    public ResponseEntity<MeetingDTO> getMeeting(@PathVariable Long id) {
+        log.debug("REST request to get Meeting : {}", id);
+        Optional<MeetingDTO> MeetingDTO = MeetingService.findOne(id);
+        return ResponseUtil.wrapOrNotFound(MeetingDTO);
     }
 
     /**
-     * {@code DELETE  /employees/:id} : delete the "id" employee.
+     * {@code DELETE  /Meetings/:id} : delete the "id" Meeting.
      *
-     * @param id the id of the employeeDTO to delete.
+     * @param id the id of the MeetingDTO to delete.
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
-    @DeleteMapping("/employees/{id}")
-    public ResponseEntity<Void> deleteEmployee(@PathVariable Long id) {
-        log.debug("REST request to delete Employee : {}", id);
-        employeeService.delete(id);
+    @DeleteMapping("/Meetings/{id}")
+    public ResponseEntity<Void> deleteMeeting(@PathVariable Long id) {
+        log.debug("REST request to delete Meeting : {}", id);
+        MeetingService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString())).build();
     }
 }
